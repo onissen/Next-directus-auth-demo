@@ -1,0 +1,24 @@
+{
+  "name": "next14 Directus",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@directus/sdk": "^15.1.0",
+    "install": "^0.13.0",
+    "next": "14.0.4",
+    "next-auth": "^5.0.0-beta.3",
+    "npm": "^10.2.5",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4"
+  }
+}
