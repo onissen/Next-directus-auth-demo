@@ -1,11 +1,8 @@
 "use client"
-
 import { updatePost } from "@/lib/action";
-import styles from "./updatePostForm.module.css";
 import { useState } from "react";
 
 const UpdatePostForm = ({userId, post}) => {
-  // const [state, formAction] = useFormState(updatePost, {title: post.title});
   const [formState, setFormState] = useState({
     id: post.id,
     title: post.title,
@@ -19,7 +16,7 @@ const UpdatePostForm = ({userId, post}) => {
   }
   
   return (
-    <div className={styles.container}>
+    <div>
       <form onSubmit={handleSubmit}>
         <h1>Update {post.title}</h1>
         <input type="text" name="title" value={formState.title} onChange={(e)=> setFormState({...formState, title: e.target.value}) } placeholder="Title" />

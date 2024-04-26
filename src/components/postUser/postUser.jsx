@@ -1,10 +1,9 @@
-import styles from "./postUser.module.css";
 import directus from "@/lib/directus";
 
 const PostUser = async ({ user }) => {
 
   return (
-    <div className={styles.container}>
+    <div>
       <img
         src={
           user?.photo
@@ -13,12 +12,10 @@ const PostUser = async ({ user }) => {
         }
         alt=""
         fill
-        className={styles.avatar}
       />
-      <div className={styles.texts}>
-        <span className={styles.title}>Author</span>
+      <div>
+        <span>Author</span>
         <span
-          className={styles.username}
         >{`${user?.first_name} ${user?.last_name}`}</span>
       </div>
     </div>

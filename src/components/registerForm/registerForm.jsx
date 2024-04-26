@@ -1,7 +1,5 @@
 "use client";
-
 import { register } from "@/lib/action";
-import styles from "./registerForm.module.css";
 import { useFormState } from "react-dom";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -20,7 +18,7 @@ const RegisterForm = () => {
   
 
   return (
-    <form className={styles.form} action={formAction}>
+    <form action={formAction}>
       <input type="text" placeholder="First name" name="first_name" />
       <input type="text" placeholder="Last name" name="last_name" />
       <input type="email" placeholder="email" name="email" />

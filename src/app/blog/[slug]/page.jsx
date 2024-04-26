@@ -1,5 +1,4 @@
 import { redirect } from 'next/navigation'
-import styles from "./singlePost.module.css";
 import PostUser from "@/components/postUser/postUser";
 import { Suspense } from "react";
 import directus from "@/lib/directus";
@@ -9,7 +8,6 @@ import { cookies } from "next/headers";
 
 export const generateMetadata = async ({ params }) => {
   const { slug } = params;
-
   const post = await getPost(slug);
 
   return {
@@ -19,7 +17,6 @@ export const generateMetadata = async ({ params }) => {
 
 const SinglePostPage = async ({ params }) => {
   const { slug } = params;
-
   const post = await getPost(slug);
   const cookie = cookies().get("auth_user")
   const user = JSON.parse(cookie.value)
@@ -32,38 +29,36 @@ const SinglePostPage = async ({ params }) => {
   };
 
   return (
-    <div className={styles.container}>
+    <div>
       {post.image && (
-        <div className={styles.imgContainer}>
-          {/*<Image src={post.image} alt="" fill className={styles.img} />*/}
-          <img src={post.image ? `${directus.url}assets/${post.image.filename_disk}?width=400` : "/noavatar.png" } alt="" fill className={styles.img}/>
+        <div>
+          <img src={post.image ? `${directus.url}assets/${post.image.filename_disk}?width=400` : "/noavatar.png" } alt="" fill/>
         </div>
       )}
-      <div className={styles.textContainer}>
-        <h1 className={styles.title}>{post.title}</h1>
-        <div className={styles.detail}>
+      <div>
+        <h1>{post.title}</h1>
+        <div>
           {post && (
             <Suspense fallback={<div>Loading...</div>}>
               <PostUser user={post.user_created} />
             </Suspense>
           )}
-          <div className={styles.detailText}>
-            <span className={styles.detailTitle}>Published</span>
-            <span className={styles.detailValue}>
+          <div>
+            <span>Published</span>
+            <span>
               {post.date_created.toString().slice(2, 16)}
             </span>
           </div>
-          {console.log({authUser: user?.id, author: post})}
-          {user?.id === post?.user_created?.id &&  <div className={styles.btnContainer}>
-            <Link href={`/update-post/${post.id}`} style={{color: "white", backgroundColor: "green" }} className={styles.btn}>Edit</Link>
+          {user?.id === post?.user_created?.id &&  <div>
+            <Link href={`/update-post/${post.id}`}>Edit</Link>
             <form action={handleDelete}>
             <input name="postId" style={{visibility: "hidden"}} value={post?.id}/>
             <input name="userId" style={{visibility: "hidden"}} value={user?.id}/>
-            <button style={{color: "white", backgroundColor: "red" }} className={styles.btn}>Delete</button>
+            <button >Delete</button>
           </form>
           </div>}
         </div>
-        <div className={styles.content} dangerouslySetInnerHTML={{ __html: post.content }}></div>
+        <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
       </div>
     </div>
   );
