@@ -6,6 +6,7 @@ const Navbar = async () => {
 
   const session = await auth();
 
+  console.log(session)
   return (
     <div>
       <Link href="/">CRUD APP</Link>
