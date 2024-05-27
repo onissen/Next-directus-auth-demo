@@ -1,20 +1,12 @@
 "use client";
 import { useState } from "react";
-import NavLink from "./navLink/navLink";
+import NavLink from "./navLink";
 import { handleLogout } from "@/lib/action";
 
 const links = [
   {
     title: "Home",
     path: "/",
-  },
-  {
-    title: "Posts",
-    path: "/blog",
-  },
-  {
-    title: "Create Post",
-    path: "/create-post",
   },
 ];
 

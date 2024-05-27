@@ -1,12 +1,10 @@
 import Link from "next/link"
-import Links from "./links/Links"
+import Links from "./Links"
 import { auth } from "@/lib/auth";
 
 const Navbar = async () => {
 
   const session = await auth();
-
-  console.log(session)
   return (
     <div>
       <Link href="/">CRUD APP</Link>

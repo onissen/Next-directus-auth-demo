@@ -15,7 +15,7 @@ export const authConfig = {
           withToken(
             user.data.access_token,
             readMe({
-              fields: ["id", "first_name", "last_name"],
+              fields: ["id", "first_name", "last_name", "email"],
             })
           )
         );
@@ -34,6 +34,9 @@ export const authConfig = {
       if (token) {
         session.user.accessToken = token.accessToken;
         session.user.refreshToken = token.refreshToken;
+        session.user.first_name = token.user.first_name
+        session.user.last_name = token.user.last_name
+        session.user.email = token.user.email
       }
       return session;
     },
