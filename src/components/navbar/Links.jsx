@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import NavLink from "./navLink";
 import { handleLogout } from "@/lib/action";
 
@@ -11,7 +10,7 @@ const links = [
 ];
 
 const Links = ({session}) => {
-  const [open, setOpen] = useState(false);
+
 
   return (
     <div>
