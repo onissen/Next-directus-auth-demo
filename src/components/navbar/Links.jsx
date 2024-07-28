@@ -11,7 +11,7 @@ const links = [
 
 const Links = ({session}) => {
 
-
+  console.log(session)
   return (
     <div>
       <div>
@@ -20,6 +20,7 @@ const Links = ({session}) => {
         ))}
         {session?.user ? (
           <>
+            <p>Hallo {session.user.first_name+' '+session.user.last_name}</p>
             <form action={handleLogout}>
               <button>Sign out</button>
             </form>
