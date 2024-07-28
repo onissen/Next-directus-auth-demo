@@ -4,9 +4,9 @@ import { auth } from "@/lib/auth";
 
 export const metadata = {
   title: {
-    default:"Next.js 14 Homepage",
+    default:"Northware Cockpit",
   },
-  description: "Next.js Directus app",
+  description: "Northware Cockpit",
 };
 
 const RootLayout = async ({ children }) => {
