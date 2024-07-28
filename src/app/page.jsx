@@ -1,3 +1,4 @@
+import LoginButton from "@/components/loginButton";
 import { auth } from "@/lib/auth";
 import directus from "@/lib/directus";
 import { readItems, withToken } from "@directus/sdk";
@@ -15,7 +16,6 @@ const HomePage = async () => {
   const session = await auth()
   if (data && session) {
     return (
-
       <div>
        <h1>{data.title}</h1> 
        <p>{data.description}</p>
@@ -23,7 +23,12 @@ const HomePage = async () => {
       </div>
     );
   }
-  
+  return (
+    <>
+      <h1>Login</h1>
+      <LoginButton session={session} />
+    </>
+  )
 };
 
 export default HomePage;

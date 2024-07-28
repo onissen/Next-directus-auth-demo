@@ -1,15 +1,23 @@
 import Link from "next/link"
-import Links from "./Links"
-import { auth } from "@/lib/auth";
+
+const links = [
+  {
+    title: "Home",
+    path: "/",
+  },
+];
 
 const Navbar = async () => {
-
-  const session = await auth();
+  
   return (
     <div>
       <Link href="/">CRUD APP</Link>
       <div>
-        <Links session={session}/>
+        {links.map((item) => (
+          <Link href={item.path} key={item.path}>
+            {item.title}
+          </Link>
+        ))}
       </div>
     </div>
   )
